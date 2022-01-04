@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>UFO Sightings Across the World</title>
+        <meta charset="UTF-8" />
+        <meta name="author" content="Team Please Compile" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet" />
+    </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2,
+        h3 {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 16px;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+/* Create a position for the map
+on the page */
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+/* Set rules for how the map overlays
+(info box) will be displayed
+on the page. */
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #fff7fe;
+            margin-right: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            overflow: auto;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 3px;
+        }
+
+        /* Info box specs */
+        #features {
+            top: 0;
+            height: 300px;
+            margin-top: 20px;
+            width: 250px;
+        }
+
+        .legend {
+            background-color: #fff7fe;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 3px;
+            bottom: 30px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font: 12px/20px 'Helvetica Neue', Arial, sans-serif;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            z-index: 1;
+            }
+
+        .legend h4 {
+            margin: 0 0 10px;
+            }
+
+        .legend div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 10px;
+            margin-right: 5px;
+            width: 10px;
+            }
+
+    </style>
+
+    <div id="map">
+
+    <div id="duration-legend" class="legend">
+        <h4>Sighting Duration</h4>
+        <div><span style="background-color: #bfffff"></span>> 0 - 30 sec.</div>
+        <div><span style="background-color: #a4e3e4"></span>> 30 - 45 sec.</div>
+        <div><span style="background-color: #8ac7c9"></span>> 45 - 60 sec.</div>
+        <div><span style="background-color: #70acae"></span>> 1 - 2 min.</div>
+        <div><span style="background-color: #579295"></span>> 2 - 5 min.</div>
+        <div><span style="background-color: #3f787c"></span>> 5 - 10 min.</div>
+        <div><span style="background-color: #256064"></span>> 10 - 60 min.</div>
+        <div><span style="background-color: #06484d"></span>> 1 hr. - 1 day</div>
+        <div><span style="background-color: #000000"></span>>1 day - in progress</div>
+</div>
+
+        <script>
+            mapboxgl.accessToken = "pk.eyJ1IjoibWpvaG5zdDMiLCJhIjoiY2t1YzJhMHl0MHdnaDMycTZ6NGlramt0dSJ9.w6m0rQ7szb24wu0eRQqTaw";
+            const map = new mapboxgl.Map({
+                container: "map",
+                style: "mapbox://styles/mjohnst3/ckw17lmdn2eca14rtdsugahny",
+            });
+            //center map on USA when loaded
+            map.on("load", () => {
+                map.fitBounds([
+                    [-133.2421875, 16.972741],
+                    [-47.63671875, 52.696361],
+                ]);
+
+                // Display sighting info when dot clicked
+                map.on("click", ({ point }) => {
+                    const sightings = map.queryRenderedFeatures(point, {
+                        layers: ["ufo15nov"],
+                    }); //['complete-8ng6r4']
+
+                    document.getElementById("pd").innerHTML = sightings.length
+                        ? `<h3>Date: ${sightings[0].properties.Date_time}</h3><p><strong><em>Location: ${sightings[0].properties.city}</p><h3>UFO Shape: ${sightings[0].properties.UFOshape}</h3><h3>Duration: ${sightings[0].properties.describeddurationofencounter}</h3><h3>Description: ${sightings[0].properties.description}</h3><h3>Video Link: <a href=${sightings[0].properties.link}>${sightings[0].properties.link}</a></h3>`
+                        : `<p>Click a sighting dot!</p>`;
+                }); //<a href="/about/about_team.htm">team</a>
+
+                map.getCanvas().style.cursor = "crosshair"; //other options: 'pointer' (pointer finger) or 'default' (arrow)
+            });
+        </script>
+    </div>
+    <div class="map-overlay" id="features">
+        <h2>UFO Sightings Across the World</h2>
+        <div id="pd"><p>Click a sighting dot!</p></div>
+    </div>
+    <!-- <div class='map-overlay' id='legend'></div> -->
+</html>

@@ -17,9 +17,10 @@
     --fw-bold: 900;
 
     /* font color */
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-light: #EEEEEE;
+    --clr-dark: #222831;
+    --clr-dark2: #393E46;
+    --clr-accent: #D65A31;
 
     /* font size */
     --fs-h1: 3rem;
@@ -411,6 +412,7 @@ header {
     transform: scale(1.2);
     opacity: .75;
 }
+
 
 /* footer */
 
