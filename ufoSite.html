@@ -124,7 +124,7 @@ on the page. */
                     }); //['complete-8ng6r4']
 
                     document.getElementById("pd").innerHTML = sightings.length
-                        ? `<h3>Date: ${sightings[0].properties.Date_time}</h3><p><strong><em>Location: ${sightings[0].properties.city}</p><h3>UFO Shape: ${sightings[0].properties.UFOshape}</h3><h3>Duration: ${sightings[0].properties.describeddurationofencounter}</h3><h3>Description: ${sightings[0].properties.description}</h3><h3>Video Link: <a href=${sightings[0].properties.link}>${sightings[0].properties.link}</a></h3>`
+                        ? `<h3>Date: ${sightings[0].properties.Date_time}</h3><p><strong><em>Location: ${sightings[0].properties.city}</p><h3>UFO Shape: ${sightings[0].properties.UFOshape}</h3><h3>Duration: ${sightings[0].properties.describeddurationofencounter}</h3><h3>Description: ${sightings[0].properties.description}</h3><h3>Video Link: <a href=${sightings[0].properties.link} target="_blank" rel="noopener noreferrer">${sightings[0].properties.link}</a></h3>`
                         : `<p>Click a sighting dot!</p>`;
                 }); //<a href="/about/about_team.htm">team</a>
 
