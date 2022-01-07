@@ -151,7 +151,6 @@ header {
     bottom: 0;
     right: 0;
     z-index: 100;
-
     transform: translate(100%);
     transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
 }
