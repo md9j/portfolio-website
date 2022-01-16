@@ -92,19 +92,6 @@ strong {font-weight: var(--fw-bold);}
     transform: scale(1.1);
 }
 
-a:link, a:visited {
-    background-color: var(--clr-accent);
-    color: white;
-    padding: 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  a:hover, a:active {
-    background-color: green;
-  }
-
 /* typography */
 
 h1,
@@ -310,14 +297,14 @@ header {
 }
 
 .section__title--about {
-    color: var(--clr-dark);
+    color: var(--clr-accent);
     position: relative;
 }
 
 .section__title--about::after {
     content: ' ';
     display: block;
-    width: 2em;
+    width: 4em;
     height: 1px;
     margin: 0.5em auto 1em;
     background: var(--clr-light);
@@ -331,6 +318,18 @@ header {
     max-width: 500px;
     margin: 0 auto;
 }
+
+.service__link {
+    color: inherit;
+    font-weight: var(--fw-reg);
+    font-size: var(--fs-h3);
+    text-decoration: none;
+}
+
+.service__link:hover {
+    color: var(--clr-accent);
+}
+
 @media (min-width: 800px) {
     .about {
         display: flex;
@@ -406,7 +405,7 @@ header {
 }
 
 .portfolio__item {
-    background-color: var(--clr-dark);
+    background-color: whitesmoke;
     overflow: hidden;
 }
 
