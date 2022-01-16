@@ -92,6 +92,19 @@ strong {font-weight: var(--fw-bold);}
     transform: scale(1.1);
 }
 
+a:link, a:visited {
+    background-color: var(--clr-accent);
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  a:hover, a:active {
+    background-color: green;
+  }
+
 /* typography */
 
 h1,
@@ -297,7 +310,7 @@ header {
 }
 
 .section__title--about {
-    color: var(--clr-accent);
+    color: var(--clr-dark);
     position: relative;
 }
 
@@ -393,7 +406,7 @@ header {
 }
 
 .portfolio__item {
-    background-color: var(--clr-accent);
+    background-color: var(--clr-dark);
     overflow: hidden;
 }
 
