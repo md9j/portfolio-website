@@ -41,7 +41,7 @@
         <!-- Introduction -->
         <section class="intro">
             <h1 class="section__title section__title--intro">
-                The title <strong>of my project</strong>
+                Here is my <strong>Contact Info</strong>
             </h1>
             <p class="section__subtitle section__subtitle--intro">
                 clever subtitle 
@@ -56,7 +56,18 @@
             <p>Maecenas ante neque, elementum quis lorem sed, consequat pulvinar orci. Donec sed nisi ut dui molestie commodo quis sed velit. Aenean nunc elit, elementum eget blandit et, pharetra id ipsum. Aenean nec nulla vestibulum erat ultricies suscipit. Suspendisse potenti. Nam sit amet nisl consequat, dictum ligula ut, auctor massa. Suspendisse urna dui, accumsan et diam sed, commodo faucibus ligula. Vivamus ut turpis nisi.</p>
         <div></div>
         </div>
-
+        
+        <p id="copy">Johnston.MichaelD@yahoo.com</p>
+        <button class="btn" onclick="copyEvent('copy')">Copy Email</button>
+        
+        <script>
+            function copyEvent(id)
+            {
+                var str = document.getElementById(id);
+                window.getSelection().selectAllChildren(str);
+                document.execCommand("Copy")
+            }
+        </script>
 
 
         <!-- Footer -->
@@ -65,7 +76,7 @@
                 Johnston.MichaelD@yahoo.com
             </a>
             <ul class="social-list">
-                <li class="social-list__item"><a class="social-list__link" href="contactInfo.html/">
+                <li class="social-list__item"><a class="social-list__link" href="contactInfo.html">
                     <i class="far fa-address-card"></i></a>
                 </li>
                 <li class="social-list__item">
